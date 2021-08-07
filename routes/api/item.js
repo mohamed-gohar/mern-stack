@@ -24,9 +24,9 @@ router.post("/", (req, res) => {
 // @desc    Delete Item
 // @access  Public
 router.delete("/:id", (req, res) => {
-  Item.findById(req.params.id)
-    .then((item) => {
-      item.deleteOne().then(() => res.json({ success: true }));
+  Item.findByIdAndDelete(req.params.id)
+    .then(() => {
+      res.json({ success: true });
     })
     .catch((e) => res.status(404).json({ success: false }));
 });

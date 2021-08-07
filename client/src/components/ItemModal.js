@@ -18,6 +18,8 @@ const ItemModal = ({ addItem }) => {
   const [name, setName] = useState("");
   const [blur, setBlur] = useState(false);
 
+  const trimedName = name.trim();
+
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -25,7 +27,8 @@ const ItemModal = ({ addItem }) => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    if (name) {
+    setBlur(true);
+    if (trimedName) {
       addItem({ name });
       toggle();
     }
@@ -49,9 +52,9 @@ const ItemModal = ({ addItem }) => {
                 value={name}
                 placeholder="add shopping item..."
                 onChange={(e) => setName(e.target.value)}
-                valid={name !== ""}
+                valid={trimedName !== ""}
                 onBlur={() => setBlur(true)}
-                invalid={blur && name === ""}
+                invalid={blur && trimedName === ""}
               />
               <FormFeedback inValid>add item</FormFeedback>
             </FormGroup>

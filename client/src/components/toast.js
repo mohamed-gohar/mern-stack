@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
 import { Alert } from "reactstrap";
 
@@ -10,15 +10,15 @@ const Toast = ({ item }) => {
   //   setIsOpen(!isOpen);
   // };
 
-  let time = null;
-  useEffect(() => {
-    time = setTimeout(() => {
-      setIsOpen(false);
-    }, 3000);
-    return () => {
-      clearTimeout(time);
-    };
-  }, [isOpen]);
+  // useEffect(() => {
+  //   let time = null;
+  //   time = setTimeout(() => {
+  //     setIsOpen(false);
+  //   }, 2000);
+  //   return () => {
+  //     clearTimeout(time);
+  //   };
+  // });
 
   return (
     <div
