@@ -6,9 +6,9 @@ const Toast = ({ item }) => {
   const { success } = item;
   const [isOpen, setIsOpen] = useState(true);
 
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggle = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   let time = null;
   useEffect(() => {
