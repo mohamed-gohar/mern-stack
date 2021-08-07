@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //static files
 if (process.env.NODE_ENV === "production") {
+  process.env.CI = false;
   app.use(express.static(path.join(__dirname, "client", "build")));
   app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));

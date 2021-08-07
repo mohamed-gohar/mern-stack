@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "dev": "npm-run-all -p server client",
     "client-i": "npm i --prefix client",
-    "vercel-build": "process.env.CI = false npm install --prefix client && npm run build --prefix client"
+    "vercel-build": "npm install --prefix client && CI='' npm run build --prefix client"
   },
   "author": "gohar",
   "license": "MIT",
