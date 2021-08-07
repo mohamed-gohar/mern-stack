@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
+const path = require("path");
 
 // app
 const app = express();
@@ -8,6 +9,12 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//static builds
+app.use(express.static(path.json(__dirname, "client", "build")));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.js"));
+});
 
 //connect mongodb
 const mongoURI = process.env.MONGO_URI;
