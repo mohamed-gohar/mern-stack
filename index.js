@@ -28,13 +28,13 @@ app.use((req, res) => {
   res.status(404).type("text").send("Not found");
 });
 
-//static files
-// if (process.env.NODE_ENV === "production") {
-app.use(express.static(path.join(__dirname, "client", "build")));
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
-// }
+//static files--
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client", "build")));
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+  });
+}
 
 // start server
 const port = process.env.PORT || 5000;
