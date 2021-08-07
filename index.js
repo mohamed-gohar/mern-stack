@@ -10,14 +10,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//static files--
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client", "build")));
-}
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
-
 //connect mongodb
 const mongoURI = process.env.MONGO_URI;
 mongoose
@@ -34,6 +26,14 @@ app.use("/api/items", require("./routes/api/item"));
 
 app.use((req, res) => {
   res.status(404).type("text").send("Not found");
+});
+
+//static files--
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client", "build")));
+}
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // start server
