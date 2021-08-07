@@ -29,12 +29,12 @@ app.use((req, res) => {
 });
 
 //static files
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client", "build")));
-  app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+app.use(express.static(path.join(__dirname, "client", "build")));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+// }
 
 // start server
 const port = process.env.PORT || 5000;
