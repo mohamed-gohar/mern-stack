@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-//connect mongodb--
+//connect mongodb
 const mongoURI = process.env.MONGO_URI;
 mongoose
   .connect(mongoURI, {
