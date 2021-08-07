@@ -1,0 +1,22 @@
+{
+  "name": "mern-stack-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon",
+    "client": "npm start --prefix client",
+    "dev": "npm-run-all -p server client",
+    "client-i": "npm i --prefix client"
+  },
+  "author": "gohar",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

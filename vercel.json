@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "name": "mern_stack-shopping-list",
+  "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/" }]
+}
